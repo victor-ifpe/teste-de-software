@@ -1,0 +1,5 @@
+br\ifpe\jaboatao\ts\utils\DataUtils.class
+br\ifpe\jaboatao\ts\entidades\Usuario.class
+br\ifpe\jaboatao\ts\entidades\Filme.class
+br\ifpe\jaboatao\ts\entidades\Locacao.class
+br\ifpe\jaboatao\ts\servicos\LocacaoService.class
