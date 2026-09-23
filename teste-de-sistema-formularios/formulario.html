@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Exercicio</title>
+    <style>
+        #resTitulo{
+            color: red;
+            text-align: center;
+            background-color: yellow;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+
+        <h1> Cadastre o filme abaixo utilizando o Selenium.</h1>
+        <p></p>
+        <form action=" "> </form>
+        <div id="resTitulo"></div>
+        <label for="" > Titulo </label>
+        <input type=" text" id="idtitulo" class="textoo" placeholder=" digite o titulo">
+
+        <p></p>
+        <label for=""> Selecione um Genero </label>
+        
+        <select name=" genero" id="idgenero">
+            <option value=""></option>
+            <option value="romance"> Romance</option>
+            <option value="drama" > Drama</option>
+            <option value="terror"> Terror</option>
+            <option value="suspence"> Suspence</option>
+            <option value="comedia"> Comedia</option>
+        </select>
+        <p></p>
+        <label for="" > Ano de Lançamento: </label> <br>
+        <input type="radio" id="anoLaçamento_2020" name="radioAno" value="2020">
+        <label for="anoLaçamento_2020">2020</label><br>
+
+        <input type="radio" id="anoLaçamento_2021" name="radioAno" value="2021">
+        <label for="anoLaçamento_2021">2021</label><br>
+
+        <input type="radio" id="anoLaçamento_2022" name="radioAno" value="2022">
+        <label for="anoLaçamento_2022">2022</label><br>
+
+        <br>
+
+
+        <legend> <b>Selecione um prêmio: </b></legend>
+        <label for="idoscar" > Oscar</label>
+        <input type="checkbox" id="idoscar" name="checkboxOscar"> <br>
+        <label for="idglo">Globo de ouro</label>
+        <input type="checkbox" id="idglo" name="checkboxOscar">
+        <br>
+        <label for="idcal"  > Calunga</label>
+        <input type="checkbox" id="idcal" name="checkboxOscar">
+        <br>
+        <label for="idbar"> Barrocos</label>
+        <input type="checkbox" id="idbar" name="checkboxOscar">
+        <p></p>
+        
+        <legend >Descrição</legend>
+        <textarea name="descricao" id="iddescricao" cols="30" rows="10"></textarea>
+        <p></p>
+        <br>
+        <button type="submit" onclick="validar()">Cadastrar</button>
+
+        </fieldset>
+    </form>
+
+    <script>
+        function validar(){
+            var divResultado = document.getElementById("resTitulo");
+            //alert("Olá")
+            var titulo = document.getElementById("idtitulo");
+            //var titulo = window.document.querySelector('input#idtitulo').value;
+            //Campo texto
+            if (titulo.value == ""){
+                divResultado.innerHTML = "Informe o título!"
+                titulo.focus();
+                return false;
+            }
+            //Combo box
+            if (document.getElementById("idgenero").value == ""){
+                divResultado.innerHTML = "Informe o Gênero.";
+                document.getElementById("idgenero").focus();
+                return false;
+            }
+
+            //Radio button
+            if (document.getElementById("anoLaçamento_2020").checked == false
+                &&
+                document.getElementById("anoLaçamento_2021").checked == false
+                &&
+                document.getElementById("anoLaçamento_2022").checked == false){
+                    divResultado.innerHTML = "Informe o ano lançamento!"
+                    return false;
+            }
+
+
+
+            //CheckBox
+            var checkboxs = document.getElementsByName("checkboxOscar");
+            var checkboxSelecionado = false;
+            for (var i = 0; i < checkboxs.length;i++){
+                if (checkboxs[i].checked){
+                    checkboxSelecionado = true;
+                }
+                 
+            }
+
+            
+            //TextArea
+            var descricao = document.getElementById("iddescricao");
+            //TextArea Descricao
+            if (descricao.value == ""){
+                divResultado.innerHTML = "Informe a descrição!"
+                descricao.focus();
+                return false;
+            } 
+            divResultado.innerHTML = "Formulário cadastrado com sucesso!"       
+            //alert("Formulário cadastrado com sucesso!");
+        }
+    </script>
+</body>
+</html>
